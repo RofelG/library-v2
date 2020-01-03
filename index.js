@@ -16,6 +16,9 @@ mongoose.connect(MONGOURL)
 const { User } = require('./Model/user');
 
 app.use(bodyParser.json()); //Converts data body to JSON format
+app.use(bodyParser.urlencoded({ extended: true }));
+
+const port = process.env.PORT || 4000;
 
 app.post('/api/user/signup', (req, res) => {
     const user = new User({
@@ -25,11 +28,9 @@ app.post('/api/user/signup', (req, res) => {
         if (err)
             res.status(400).send(err)
         else 
-            res.status(200).send(response)
+            res.status(200).send("Signed up")
     })
 })
-
-const port = process.env.PORT || 4000;
 
 app.post('/api/user/signin', (req, res) => {
     //Checks that email is present or not
@@ -46,6 +47,12 @@ app.post('/api/user/signin', (req, res) => {
             })
         }
     })
+});
+
+
+
+app.use("/", (req, res) => {
+    res.sendFile(__dirname + "/public/signin.html");
 });
 
 app.listen(port, () => {

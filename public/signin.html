@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bookworm - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+    <div class="login-form">
+        <img src="https://via.placeholder.com/150">
+        <div class="sections">
+            <a href="#">Sign In</a>
+            <span class="vr"></span>
+            <a href="#">Sign Up</a>
+        </div>
+        <form class="sign signin" action="/api/user/signin" method="post">
+            <input type="text" placeholder="username" name="email">
+            <input type="password" placeholder="password" name="password">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <form class="sign signup hidden" action="/api/user/signup" method="post">
+            <input type="text" placeholder="Username" name="email">
+            <input type="password" placeholder="Password" name="password">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
